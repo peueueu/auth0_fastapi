@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <div>
+      <h2>Profile</h2>
+      <div>
+        <p>Welcome home {{ request.session['userinfo'].name }}!</p>
+      </div>
+      <div>
+        <p class="json-title">Here is your profile information:</p>
+        <div class="json-container">
+          <pre>{{ request.session['userinfo'] | to_pretty_json }}</pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
